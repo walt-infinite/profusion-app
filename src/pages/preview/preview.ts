@@ -69,18 +69,18 @@ export class PreviewPage {
 
   publish(){
     let alert = this.alertCtrl.create({
-      title: 'Ready to shine?',
-      message: 'Publish this recipe to the community',
+      title: 'On publie ?',
+      message: 'La recette sera visible par toute la communauté.',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Annuler',
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
           }
         },
         {
-          text: 'Publish',
+          text: 'Publier',
           handler: () => {
 
           	var oldRef = firebase.database().ref('/posts/drafts/' + this.postid);
@@ -104,14 +104,14 @@ export class PreviewPage {
               });
 
 				      postRef.subscribe(snap => {
-                //Close the global modal and pass the post 
+                //Close the global modal and pass the post
 					        this.navParams.get('viewCtrl').dismiss(this.navParams.get('post')).then((success) => {
                     //Update the posts count of the user
                     userRef.child(`post_count`).transaction(function(post) {
                       post += 1;
                       return post;
                     });
-                }); 
+                });
 				      })
 		        }).then((success) => {
                //Remove the drafts node

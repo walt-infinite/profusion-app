@@ -10,7 +10,7 @@
 
     <ion-buttons end>
       <button ion-button (click)="publish()">
-        <span style="color: #E94B35;">Publish</span>
+        <span style="color: #E94B35;">Publier</span>
       </button>
     </ion-buttons>
 
@@ -18,7 +18,7 @@
 
 </ion-header>
 
-<ion-content vp-scrollable-content=".scroll-content">
+<ion-content>
 
 	  <!-- Post meta -->
 	  <div class="post-meta">
@@ -36,13 +36,12 @@
 	  </ion-item>
 
 	<ion-list class="recipe-content"
-            [virtualScroll]="imagesList" 
-            [virtualTrackBy]="trackStand"
-            approxItemHeight="400px"
             no-lines>
     <!-- Post Content -->
 
-    <ion-item *virtualItem="let image">
+  <div *ngFor="let image of imagesList; let i = index; trackBy:image?.key">
+
+    <ion-item>
 
        <div class="photo" *ngIf="image.type == 'photo'" >
          <img src="{{image.url}}"
@@ -52,7 +51,7 @@
        </div>
 
        <div class="photo video" *ngIf="image.type == 'video'">
-         <video #video src="{{image.url}}" webkit-playsinline playsinline preload="none" loop muted autoplay 
+         <video #video src="{{image.url}}" webkit-playsinline playsinline preload="none" loop muted autoplay
                       (loadedmetadata)="videoClicked(video)">
          </video>
        </div>
@@ -65,13 +64,13 @@
 
     </ion-item>
 
-
+    </div>
   </ion-list>
 
 </ion-content>
 
 <ion-footer>
   <ion-toolbar color="primary" (click)="publish()">
-    <ion-title>Publish recipe</ion-title>
+    <ion-title>Publier la recette</ion-title>
   </ion-toolbar>
 </ion-footer>

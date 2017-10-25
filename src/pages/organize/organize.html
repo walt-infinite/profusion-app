@@ -1,6 +1,6 @@
 <ion-header no-border>
   <ion-navbar color="light" transparent>
-  	
+
   	<ion-buttons start *ngIf="navCtrl.canGoBack()==false">
       <button ion-button (click)="dismiss()">Fermer</button>
     </ion-buttons>
@@ -27,7 +27,7 @@
 
 	<form [formGroup]="postForm" class="form">
 		<ion-item class="textarea-item">
-	        <textarea #textarea class="paragraph title" formControlName="title" type="text" placeholder="Écrire un titre..." 
+	        <textarea #textarea class="paragraph title" formControlName="title" type="text" placeholder="Écrire un titre..."
 	        			  autocorrect="on"
 	        			  autocomplete="on"
 	        			  [style.height.px]="textarea.scrollHeight"
@@ -40,7 +40,7 @@
 	<div *ngFor="let image of imagesList; let i = index; trackBy:image?.key">
 		<div class="photo" *ngIf="image.type == 'photo'"
 			 (press)="photoAction(image)">
-			<div class="typetag"><ion-icon name='md-camera'></ion-icon></div>  
+			<div class="typetag"><ion-icon name='md-camera'></ion-icon></div>
 
 			<img src="{{image.url}}"
                    class="background"
@@ -50,16 +50,16 @@
 		</div>
 
 		<div class="photo video" *ngIf="image.type == 'video'">
-			<div class="typetag"><ion-icon name='md-videocam'></ion-icon></div> 
+			<div class="typetag"><ion-icon name='md-videocam'></ion-icon></div>
 
-			<video #video src="{{image.url}}" webkit-playsinline playsinline preload="none" loop muted autoplay 
+			<video #video src="{{image.url}}" webkit-playsinline playsinline preload="none" loop muted autoplay
 				   (loadedmetadata)="videoClicked(video)"></video>
 
 		</div>
 
 		<form [formGroup]="postForm" class="form">
 	        <ion-item class="textarea-item">
-	        	<textarea #textarea class="paragraph" formControlName="post" type="text" placeholder="Expliquez cette étape..." 
+	        	<textarea #textarea class="paragraph" formControlName="post" type="text" placeholder="Expliquez cette étape..."
 	        				  autocorrect="on"
 	        			  	  autocomplete="on"
 	        			  	  (input)="autosize(textarea)"
