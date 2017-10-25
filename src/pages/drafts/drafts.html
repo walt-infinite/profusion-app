@@ -30,12 +30,12 @@
 
 	<ion-list no-lines>
 
-    <div class="blankstate" *ngIf="(userfeed | async)?.length == 0">
+    <div class="blankstate" *ngIf="(userfeed)?.length == 0">
       You don't have any draft. Create a recipe and get started!
     </div>
 
     <!-- Get Post List-->
-    <ion-item-sliding *ngFor="let post of userfeed | async" class="postItem">
+    <ion-item-sliding *ngFor="let post of userfeed" class="postItem">
 
       <ion-item text-wrap (click)="viewCreator(post)">
 
