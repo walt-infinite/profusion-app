@@ -57,14 +57,24 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 import * as firebase from 'firebase/app';
 
-// AF2 Settings
+//Firebase Prod
+// export const firebaseConfig = {
+//     apiKey: "AIzaSyBlh8NIpsdKI9zAXVaVqHKyoCb8Sz_s71w",
+//     authDomain: "profusion-960e3.firebaseapp.com",
+//     databaseURL: "https://profusion-960e3.firebaseio.com",
+//     projectId: "profusion-960e3",
+//     storageBucket: "profusion-960e3.appspot.com",
+//     messagingSenderId: "178607507087"
+// };
+
+//Firebase Dev
 export const firebaseConfig = {
-    apiKey: "AIzaSyBlh8NIpsdKI9zAXVaVqHKyoCb8Sz_s71w",
-    authDomain: "profusion-960e3.firebaseapp.com",
-    databaseURL: "https://profusion-960e3.firebaseio.com",
-    projectId: "profusion-960e3",
-    storageBucket: "profusion-960e3.appspot.com",
-    messagingSenderId: "178607507087"
+    apiKey: "AIzaSyAWd__5mnKx-2tstlo8uussmaDWAATffnM",
+    authDomain: "onespoon-2eed5.firebaseapp.com",
+    databaseURL: "https://onespoon-2eed5.firebaseio.com",
+    projectId: "onespoon-2eed5",
+    storageBucket: "onespoon-2eed5.appspot.com",
+    messagingSenderId: "665954258353"
 };
 
 @NgModule({

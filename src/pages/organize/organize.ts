@@ -477,8 +477,6 @@ export class OrganizePage {
   }
 
   autosize(textarea) {
-      console.log(textarea);
-
       // set default style for textarea
       textarea.style.minHeight  = '0';
       textarea.style.height     = '0';
