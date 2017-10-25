@@ -1,0 +1,55 @@
+page-notifications {
+    ion-thumbnail {
+        .userpic {
+            border-radius: 15px;
+            background: #444444;
+        }
+    }
+
+    .item-ios {
+        p {
+            color: #444444 !important;
+        }
+    }
+    .postItem {
+    	padding: 10px;
+
+    	 ion-avatar {
+    	 	float: left; 
+    	 	margin-right: 10px;
+    	 	margin-top: 5px;
+    	 }
+
+    	 .item-inner {
+    	 	padding: 0 !important;
+    	 }
+
+         .note-ios {
+            font-size: 14px;
+         }
+
+    	 .user {
+    	 	font-size: 16px;
+            margin-bottom: -2px;
+    	 }
+
+    	 .notif-body {
+    	 	float: left;
+    	 	width: 85%;
+    	 }
+
+    	 .label-ios {
+    	 	margin: 0;
+    	 	margin-top: 13px;
+            margin-bottom: 5px;
+    	 }
+    }
+
+    .main-item {
+    	margin-top: -26px;
+    }
+
+    .list-ios {
+        margin-bottom: 0;
+    }
+}

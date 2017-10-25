@@ -1,0 +1,39 @@
+page-login {
+
+  .content {
+    padding: 0 40px;
+    padding-top: 50px;
+  }
+
+  h1 {
+    font-size: 24px;
+    color: #444444;
+    margin-bottom: 40px;
+  }
+
+  .invalid {
+    border-bottom: 1px solid #FF6153;
+  }
+  .error-message .item-inner {
+    border-bottom: 0 !important;
+  }
+
+  form {
+    font-size: 16px;
+
+    .item-input {
+      margin-bottom: 15px;
+
+      .label-ios {
+        margin: 5px;
+
+        ion-icon {
+          font-size: 16px;
+          color: #C4C4C4;
+        }
+      }
+    }
+
+  }
+
+}

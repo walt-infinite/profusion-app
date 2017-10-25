@@ -1,0 +1,46 @@
+<ion-header no-border>
+  <ion-navbar color="light"></ion-navbar>
+</ion-header>
+
+<ion-content scroll="false">
+
+  <div class="content">
+    <h1 class="center">Connectez-vous.</h1>
+
+    <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+
+      <ion-item>
+        <ion-label><ion-icon name="md-mail"></ion-icon></ion-label>
+        <ion-input #email formControlName="email" type="email" placeholder="Email"
+          [class.invalid]="!loginForm.controls.email.valid &&
+            (emailChanged || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  &&
+        (emailChanged || submitAttempt)">
+        <p>Please enter a valid email.</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label><ion-icon name="md-lock"></ion-icon></ion-label>
+        <ion-input #password formControlName="password" type="password" placeholder="Mot de passe"
+          [class.invalid]="!loginForm.controls.password.valid &&
+            (passwordChanged || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  &&
+        (passwordChanged || submitAttempt)">
+        <p>Your password needs more than 6 characters.</p>
+      </ion-item>
+      <br/>
+      <div padding>
+        <button ion-button block type="submit">
+          Se connecter
+        </button>
+      </div>
+
+    </form>
+
+    <button ion-button block clear color="osgrey" (click)="goToResetPassword()">
+      Mot de passe oublié ?
+    </button>
+  </div>
+</ion-content>

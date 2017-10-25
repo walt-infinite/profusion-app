@@ -1,0 +1,8 @@
+{
+  "name": "onespoon",
+  "app_id": "2b826a58",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

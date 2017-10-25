@@ -1,0 +1,46 @@
+page-drafts {
+
+	.title {
+		padding: 30px 0 30px 15px;
+		border-bottom: 0.55px solid #c8c7cc;
+		margin-bottom: 1px;
+
+		h1 {
+			color: #444444;
+			font-size: 32px;
+			font-weight: 700;
+		}
+	}
+
+		.item-inner {
+			padding: 0;
+
+			.item-inner {
+				padding: 7px !important;
+
+				.label-ios {
+					margin: 0;
+
+					h2 {
+						font-weight: 300;
+					}
+
+					p {
+						font-size: 16px;
+						font-weight: 100;
+					}
+				}	
+			}
+		}
+
+		.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+			border-bottom: none;
+		}
+
+		.list-ios {
+			margin-bottom: 0;
+		}
+
+	
+
+}

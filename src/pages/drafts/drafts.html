@@ -1,0 +1,58 @@
+<!--
+  Generated template for the DraftsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <ion-navbar color="light">
+
+  	<ion-buttons start *ngIf="showCloseBtn">
+      <button ion-button (click)="dismiss()">Close</button>
+    </ion-buttons>
+
+    <ion-buttons class="add-butt" end>
+      <!-- If User doesn't have a Username- Hide -->
+      <button *ngIf="usernameCheck" ion-button icon-only>
+        <ion-icon name="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+	<div class="title">
+		<h1>My drafts</h1>
+	</div>
+
+	<ion-list no-lines>
+
+    <div class="blankstate" *ngIf="(userfeed | async)?.length == 0">
+      You don't have any draft. Create a recipe and get started!
+    </div>
+
+    <!-- Get Post List-->
+    <ion-item-sliding *ngFor="let post of userfeed | async" class="postItem">
+
+      <ion-item text-wrap (click)="viewCreator(post)">
+
+        <div class="postmeta">
+          <h2 color="#757575">{{post.title}}</h2>
+          <p>Created {{post.timestamp | TimeStamp}} ago</p>
+        </div>
+
+
+      </ion-item>
+
+      <ion-item-options side="right" (ionSwipe)="delete(post)">
+        <button ion-button expandable (click)="delete(post)">Delete</button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>

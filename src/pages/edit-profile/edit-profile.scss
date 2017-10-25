@@ -1,0 +1,115 @@
+page-edit-profile {
+
+    .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios {
+        border-style: none;
+    }
+.menu-butt {
+        float: left;
+    }
+    .logo {
+        text-align: center;
+        margin-right: 60px;
+        padding-top: 3px;
+    }
+
+    .chatAvatar {
+        position: relative;
+
+        //Profile Header Styles
+        .profilepic{
+            border-radius: 50%;
+            width: 60px !important;
+            height: 60px !important;
+            display: block;
+            margin: 10px -15px 0px 20px;
+        }
+
+        .loader {
+            display: block;
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            margin: 10px 0 10px 20px;
+            border-radius: 50%;
+
+            .spinner {
+                width: 15px;
+                height: 15px;
+                background-color: #fff;
+                margin: 100px auto;
+                -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+                animation: sk-rotateplane 1.2s infinite ease-in-out;
+                margin-top: 23px;
+            }
+
+            @-webkit-keyframes sk-rotateplane {
+              0% { -webkit-transform: perspective(120px) }
+              50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+              100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+            }
+
+            @keyframes sk-rotateplane {
+              0% { 
+                transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+                -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+              } 50% { 
+                transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+                -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+              } 100% { 
+                transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+              }
+            }
+        }
+    }
+
+    .follow{
+        margin-top: 7px;
+        font-size: 12px;
+    }
+
+    .uploadbutton {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    .profile-section {
+        ion-item ion-label {
+            margin: 0 !important;
+        }
+
+        ion-list {
+            margin: 0;
+            padding: 0;
+        }
+
+        ion-list-header {
+            background-color: #ECECEC;
+            margin: 0;
+            padding: 10px 16px;
+        }
+
+        ion-item {
+            padding: 0;
+            border: none !important;
+        }
+
+        ion-datetime {
+            padding-left: 3px !important;
+        }
+
+        .item-inner {
+            border-color: #efefef !important;
+            padding: 0;
+        }
+
+        .placeholder-profile {
+            color: #CCCCCC;
+        }
+
+        .dob-label {
+            padding: 10px !important;
+            max-width: 50% !important;
+        }
+    }
+}

@@ -1,0 +1,214 @@
+page-profile {
+    .menu-butt {
+        float: left !important;
+    }
+
+    .main-item {
+        padding: 25px 15px;
+    }
+    .profile-section {
+        text-align: center;
+    }
+    //Profile Header Styles
+    .profilepic{
+        border-radius: 50%;
+        width: 85px;
+        height: 85px;
+        display: block;
+        float: left;
+        margin: 15px 15px 15px 15px;
+    }
+    .follow{
+        margin-top: 7px;
+        font-size: 12px;
+    }
+    .title {
+        font-size: 12px;
+    }
+
+    .profile-header {
+
+        .item-inner {
+            padding-right: 0 !important;
+            border: none;
+        }
+
+        h1 {
+            color: #444444;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 0;
+            padding-top: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #444444;
+        }
+
+        button {
+            text-transform: lowercase;
+            margin-right: 10px;
+
+            ion-icon {
+                margin-right: 5px;
+            }
+        }
+
+        .profilepic {
+            background: #444444;
+        }
+
+        .item-button {
+            font-size: 14px;
+            padding: 0;
+            margin-top: 0;
+        }
+    }
+
+    .listitem {
+            color: #444444;
+            font-size: 18px;
+            padding: 10px 0;
+        }
+
+    .virtual-scroll {
+        margin-bottom: 0;
+    }
+
+    .postUserItem {
+        width: 100%;
+        margin-top: 15px;
+
+        div.item-inner {
+            padding: 0 !important;
+
+            .label-ios {
+                margin: 0;
+
+                .item-inner {
+                    padding: 0;
+
+                    .photo {
+                        background: #EBEBEB;
+                        text-align: center;
+                        font-size: 21px;
+                        color: #AFAFAF;
+                        background-size: cover;
+                        position: relative;
+                        overflow: hidden;
+                        margin-bottom: 5px;
+                        width: 100%;
+                        height: 100vw;
+
+                        .background {
+                            height: 100%;
+                            width: 100%;
+                            background-size: cover;
+                            z-index: 0;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+
+                        .item-inner {
+                            border: none !important;
+                        }
+
+                        .photo-icon {
+                            display: block;
+                            font-size: 32px;
+                            margin-bottom: 10px;
+                            margin: auto;
+                        }
+
+                        .typetag {
+                            position: absolute;
+                            z-index: 2;
+                            top: 0;
+                            left: 0;
+                            color: #fff;
+                            padding: 10px;
+                            text-shadow: 0px 1px 2px rgba(0,0,0,0.25);
+                        }
+                    }
+
+                    .video {
+                        video {
+                            width: 100%;
+                            margin-bottom: -6px;
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    .authormeta {
+        padding-bottom: 14px;
+        width: 80%;
+        float: left;
+
+
+        ion-avatar {
+            float: left;
+            padding-left: 10px;
+            margin: 5px 10px 6px 0px !important;
+
+            img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        .user {
+            font-size: 18px;
+            font-weight: 600;
+            color: #444444;
+            margin-bottom: 0;
+        }
+
+        ion-note {
+            font-weight: 100;
+            font-size: 18px !important;
+            margin-bottom: 5px;
+        }
+    }
+
+    .contextmenu {
+        float: right;
+        padding-right: 20px;
+        padding-top: 8px;
+    }
+
+     .postthumbnail {
+        background: #C4C4C4;
+        height: 200px;
+        width: 100%;
+    }
+
+    .postmeta {
+        padding: 10px;
+        border-bottom: 1px solid #e0e0e0;
+
+        h2 {
+            font-size: 24px;
+        }
+
+        .socialmeta {
+            color: #444444;
+
+            button[icon-start] {
+                font-size: 16px;
+                padding-left: 0;
+                ion-icon {
+                    margin-right: 7px;
+                }
+                min-width: 1.8em;
+                padding-right: 6px;
+            }
+        }
+    }
+}

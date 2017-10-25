@@ -1,0 +1,180 @@
+page-home {
+    .menu-butt {
+        float: left;
+    }
+    .add-butt {
+        float: right;
+    }
+    .logo {
+        text-align: center;
+        padding-right: 20px;
+        img {
+        height: 35px;
+        height: 35px;
+        }
+    }
+    .title {
+        font-size: 12px;
+    }
+
+    .createbutton {
+        height: 115px;
+        text-align: center;
+        padding-top: 30px;
+        border-bottom: 1px solid #C4C4C4;
+        margin-bottom: 10px;
+    }
+
+    .virtual-scroll {
+        margin-bottom: 0;
+    }
+
+    .postItem {
+        width: 100%;
+        margin-top: 15px;
+
+        div.item-inner {
+            padding: 0 !important;
+
+            .label-ios {
+                margin: 0;
+
+                .item-inner {
+                    padding: 0;
+
+                    .photo {
+                        background: #EBEBEB;
+                        text-align: center;
+                        font-size: 21px;
+                        color: #AFAFAF;
+                        background-size: cover;
+                        position: relative;
+                        overflow: hidden;
+                        margin-bottom: 5px;
+                        width: 100%;
+                        height: 100vw;
+
+                        .background {
+                            height: 100%;
+                            width: 100%;
+                            background-size: cover;
+                            z-index: 0;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+
+                        .item-inner {
+                            border: none !important;
+                        }
+
+                        .photo-icon {
+                            display: block;
+                            font-size: 32px;
+                            margin-bottom: 10px;
+                            margin: auto;
+                        }
+
+                        .typetag {
+                            position: absolute;
+                            z-index: 2;
+                            top: 0;
+                            left: 0;
+                            color: #fff;
+                            padding: 10px;
+                            text-shadow: 0px 1px 2px rgba(0,0,0,0.25);
+                        }
+                    }
+
+                    .video {
+                        video {
+                            width: 100%;
+                            margin-bottom: -6px;
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    .authormeta {
+        padding-bottom: 14px;
+        width: 80%;
+        float: left;
+
+
+        ion-avatar {
+            float: left;
+            padding-left: 10px;
+            margin: 5px 10px 6px 0px !important;
+
+
+            img {
+                width: 40px;
+                height: 40px;
+                background: #c4C4C4;
+            }
+        }
+
+        .user {
+            font-size: 16px;
+            font-weight: 600;
+            color: #444444;
+            margin-bottom: 0;
+            padding-top: 4px;
+        }
+
+        ion-note {
+            font-weight: 100;
+            font-size: 16px !important;
+            margin-bottom: 5px;
+            display: block;
+            margin-top: -3px;
+        }
+    }
+
+    .contextmenu {
+        float: right;
+        padding-right: 20px;
+        padding-top: 8px;
+    }
+
+     .postthumbnail {
+        background: #C4C4C4;
+        height: 200px;
+        width: 100%;
+    }
+
+    .postmeta {
+        padding: 15px 12px;
+
+        h2 {
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .socialmeta {
+            color: #444444;
+
+            button[icon-start] {
+                font-size: 16px;
+                padding-left: 0;
+                ion-icon {
+                    margin-right: 7px;
+                }
+                min-width: 1.8em;
+                padding-right: 6px;
+            }
+        }
+    }
+
+    ion-spinner {
+        color: #444444;
+    }
+
+    .list-ios {
+        margin-bottom: 0;
+    }
+}

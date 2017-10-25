@@ -1,0 +1,54 @@
+page-you {
+	.main-item {
+    	margin-top: -26px;
+    }
+
+
+    .menu-butt {
+        float: left;
+    }
+    
+    .add-butt {
+        float: right;
+    }
+
+    .redtext .label-ios {
+        color: #dc2b13;
+    }
+
+    .postItem {
+    	border:none;
+
+    	.item-inner {
+    		border-bottom: none !important;
+    	}
+
+    	.profilepic {
+    		width: 50px;
+            height: 50px;
+    		border-radius: 50%;
+    		float: left;
+    		margin-right: 10px;
+            background: #444444;
+    	}
+
+    	h1 {
+    		color: #444444;
+    		font-size: 24px;
+    		font-weight: 600;
+    		margin-bottom: 0;
+    	}
+
+    	.item-button {
+    		font-size: 14px;
+    		padding: 0;
+    		margin-top: 0;
+    	}
+    }
+
+    .listitem {
+    		color: #444444;
+    		font-size: 18px;
+    		padding: 10px 0;
+    	}
+}

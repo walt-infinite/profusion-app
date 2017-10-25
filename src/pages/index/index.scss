@@ -1,0 +1,48 @@
+page-index {
+	.top {
+		height: 70vh;
+		background: url('../assets/img/home-bg.png');
+		background-size: cover;
+		color: #fff;
+		text-align: center;
+		font-size: 24px;
+		padding-top: 23%;
+
+		.logo {
+			width: 60%;
+			margin: auto;
+			display: block;
+			margin-bottom: 15px;
+		}
+
+		h1 {
+			width: 80%;
+			margin: auto;
+			margin-bottom: 5%;
+			font-size: 21px;
+			font-weight: 300;
+		}
+
+		button {
+			font-weight: 600;
+		}
+	}
+
+	.bottom {
+		text-align: center;
+
+		p {
+			font-size: 21px;
+			font-weight: 300;
+			color: #444444;
+			margin-bottom: 10px;
+			margin-top: 13%;
+		}
+
+		button {
+			font-weight: 300;
+			padding: 20px 30px;
+			height: 50px;
+		}
+	}
+}

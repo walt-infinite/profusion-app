@@ -1,0 +1,101 @@
+{
+    "name": "onespoon",
+    "version": "0.0.1",
+    "author": "Ionic Framework",
+    "homepage": "http://ionicframework.com/",
+    "private": true,
+    "scripts": {
+        "clean": "ionic-app-scripts clean",
+        "build": "ionic-app-scripts build",
+        "lint": "ionic-app-scripts lint",
+        "ionic:build": "ionic-app-scripts build",
+        "ionic:serve": "ionic-app-scripts serve"
+    },
+    "dependencies": {
+        "@angular/common": "4.1.3",
+        "@angular/compiler": "4.1.3",
+        "@angular/compiler-cli": "4.1.3",
+        "@angular/core": "4.1.3",
+        "@angular/forms": "4.1.3",
+        "@angular/http": "4.1.3",
+        "@angular/platform-browser": "4.1.3",
+        "@angular/platform-browser-dynamic": "4.1.3",
+        "@ionic-native/camera": "^4.2.1",
+        "@ionic-native/camera-preview": "^4.1.0",
+        "@ionic-native/core": "^4.3.2",
+        "@ionic-native/file": "^4.2.1",
+        "@ionic-native/image-resizer": "^4.2.1",
+        "@ionic-native/keyboard": "^4.3.1",
+        "@ionic-native/media-capture": "^4.2.1",
+        "@ionic-native/splash-screen": "3.12.1",
+        "@ionic-native/status-bar": "^3.12.1",
+        "@ionic-native/video-editor": "^4.2.1",
+        "@ionic/storage": "2.0.1",
+        "angularfire2": "^4.0.0-rc.1",
+        "com.synconset.imagepicker": "~2.1.8",
+        "cordova-gallery-access": "^2.2.1",
+        "cordova-ios": "^4.4.0",
+        "cordova-plugin-camera": "^2.4.1",
+        "cordova-plugin-camera-preview": "git+https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git",
+        "cordova-plugin-compat": "^1.1.0",
+        "cordova-plugin-console": "^1.0.5",
+        "cordova-plugin-device": "^1.1.4",
+        "cordova-plugin-file": "^4.3.3",
+        "cordova-plugin-image-resizer": "^1.0.0",
+        "cordova-plugin-instagram-assets-picker": "^1.1.5",
+        "cordova-plugin-ionic-webview": "^1.1.8",
+        "cordova-plugin-media-capture": "^1.4.3",
+        "cordova-plugin-splashscreen": "^4.0.3",
+        "cordova-plugin-statusbar": "^2.2.2",
+        "cordova-plugin-telerik-imagepicker": "^2.1.8",
+        "cordova-plugin-video-editor": "^1.1.3",
+        "cordova-plugin-whitelist": "^1.3.1",
+        "firebase": "^3.9.0",
+        "info.protonet.imageresizer": "^0.1.1",
+        "ionic-angular": "3.6.0",
+        "ionic-native": "^2.9.0",
+        "ionic-plugin-keyboard": "^2.2.1",
+        "ionicons": "3.0.0",
+        "ng-elastic": "^1.0.0-beta.3",
+        "nl.x-services.plugins.videocaptureplus": "~1.0.0",
+        "rxjs": "5.4.0",
+        "sw-toolbox": "3.6.0",
+        "zone.js": "0.8.12"
+    },
+    "devDependencies": {
+        "@ionic/app-scripts": "2.1.3",
+        "ionic-minify": "^2.0.10",
+        "typescript": "2.3.4"
+    },
+    "description": "An Ionic project",
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-camera": {},
+            "cordova-plugin-console": {},
+            "cordova-plugin-device": {},
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-whitelist": {},
+            "ionic-plugin-keyboard": {},
+            "cordova-plugin-camera-preview": {},
+            "cordova-plugin-media-capture": {
+                "CAMERA_USAGE_DESCRIPTION": " ",
+                "MICROPHONE_USAGE_DESCRIPTION": " ",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+            },
+            "cordova-plugin-file": {},
+            "cordova-plugin-video-editor": {},
+            "cordova-plugin-image-resizer": {},
+            "info.protonet.imageresizer": {},
+            "cordova-plugin-ionic-webview": {},
+            "com.synconset.imagepicker": {
+                "PHOTO_LIBRARY_USAGE_DESCRIPTION": "Use photos in your recipes"
+            },
+            "nl.x-services.plugins.videocaptureplus": {},
+            "cordova-plugin-instagram-assets-picker": {}
+        },
+        "platforms": [
+            "ios"
+        ]
+    }
+}

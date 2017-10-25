@@ -1,0 +1,70 @@
+<ion-header no-border>
+  <ion-navbar color="light">
+    <ion-buttons class="menu-butt">
+      <button ion-button class="main-item active-main-item" text-color="osgrey">
+        Notifications
+      </button> 
+    </ion-buttons>
+
+    <ion-buttons class="add-butt">
+      <!-- If User doesn't have a Username- Hide -->
+      <button *ngIf="usernameCheck" ion-button icon-only>
+        <ion-icon name="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg">
+
+<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list no-lines>
+
+    <div class="blankstate" *ngIf="(userfeed | async)?.length == 0">
+      You don't have any notification yet...
+    </div>
+
+
+    <div *ngFor="let post of userfeed | async">
+
+      <!-- Liked/Disliked Posts -->
+      <ion-item *ngIf="post.type == 'post'" class="postItem" text-wrap (click)="viewPost(post)">
+        <ion-avatar>
+          <img src={{post.likedProfilepic}} class="userpic" (error)="imgError(post)">
+        </ion-avatar>
+        <div class="notif-body">
+          <p color="primary" class="user"><b>{{post.likedName}}</b> {{post.voted}} your {{post.type}} "{{post.title}}"</p>
+          <ion-note class="date">{{post.timestamp | TimeStamp}}</ion-note>
+        </div>
+
+      </ion-item>
+
+      <!-- Liked/Disliked Comments -->
+      <ion-item *ngIf="post.type == 'commentlike'" class="postItem" text-wrap (click)="viewPost(post)">
+        <ion-avatar>
+          <img src={{post.likedProfilepic}} class="userpic" (error)="imgError(post)">
+        </ion-avatar>
+        <div class="notif-body">
+          <p color="primary" class="user"><b>{{post.likedName}}</b> {{post.voted}} your {{post.type}} "{{post.post}}"</p>
+          <ion-note class="date">{{post.timestamp | TimeStamp}}</ion-note>
+        </div>
+      </ion-item>
+
+      <!-- Commented on post -->
+      <ion-item *ngIf="post.type == 'comment'" class="postItem" text-wrap (click)="viewPost(post)">
+        <ion-avatar>
+          <img src={{post.senderProfilepic}} class="userpic" (error)="imgError(post)">
+        </ion-avatar>
+        <div class="notif-body">
+          <p color="primary" class="user"><b>{{post.senderName}}</b> commented on your post: "{{post.post}}"</p>
+          <ion-note class="date">{{post.timestamp | TimeStamp}}</ion-note>
+        </div>
+      </ion-item>
+
+    </div>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header no-border>
+  <ion-navbar color="light"></ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <h1 class="center">Créez votre compte.</h1>
+
+    <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+
+      <ion-item>
+        <ion-label><ion-icon name="md-person"></ion-icon></ion-label>
+        <ion-input #fullName formControlName="fullName" type="text" placeholder="Prénom et nom"
+          [class.invalid]="!signupForm.controls.fullName.valid && (fullNameChanged || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!signupForm.controls.fullName.valid  && (fullNameChanged || submitAttempt)">
+        <p>Your name needs more than 6 characters.</p>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label><ion-icon name="md-mail"></ion-icon></ion-label>
+        <ion-input #email formControlName="email" type="email"  placeholder="Email"
+          [class.invalid]="!signupForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && (emailChanged || submitAttempt)">
+        <p>Please enter a valid email.</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label><ion-icon name="md-lock"></ion-icon></ion-label>
+        <ion-input #password formControlName="password" type="password" placeholder="Mot de passe"
+          [class.invalid]="!signupForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && (passwordChanged || submitAttempt)">
+        <p>Your password needs more than 6 characters.</p>
+      </ion-item>
+
+      <br/>
+      <button ion-button block type="submit">
+        Rejoindre la communauté
+      </button>
+
+    </form>
+  </div>
+
+</ion-content>

@@ -1,0 +1,63 @@
+page-settings {
+    .menu-butt {
+        float: left;
+    }
+    .logo {
+        text-align: center;
+        margin-right: 60px;
+        padding-top: 3px;
+    }
+    //Profile Header Styles
+    .profilepic{
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 3px;
+    }
+    .follow{
+        margin-top: 7px;
+        font-size: 12px;
+    }
+    .profile-section {
+        ion-item ion-label {
+            margin: 0 !important;
+        }
+
+        ion-list {
+            margin: 0;
+            padding: 0;
+        }
+
+        ion-list-header {
+            background-color: #ECECEC;
+            margin: 0;
+            padding: 10px 16px;
+        }
+
+        ion-item {
+            padding: 0;
+        }
+
+        ion-datetime {
+            padding-left: 3px !important;
+        }
+
+        .item-inner {
+            border: none !important;
+            padding: 0;
+        }
+
+        .placeholder-profile {
+            color: #CCCCCC;
+        }
+
+        .dob-label {
+            color: #000000 !important;
+            padding: 10px !important;
+            max-width: 50% !important;
+        }
+    }
+}

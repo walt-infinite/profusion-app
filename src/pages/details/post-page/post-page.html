@@ -1,0 +1,126 @@
+<ion-header no-border>
+  <ion-navbar color="light">
+
+    <ion-buttons class="add-butt" end>
+      <button ion-button icon-start clear color="osgrey" (click)="likePost(post)" *ngIf="!post.islikedPost">
+        <ion-icon name="md-heart-outline"></ion-icon>
+      </button>
+
+      <button ion-button icon-start clear color="osgrey" (click)="likePost(post)" *ngIf="post.islikedPost">
+        <ion-icon name="md-heart" color="redtext"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg" vp-scrollable-content=".scroll-content">
+
+  <!-- Post meta -->
+  <div class="post-meta" (click)="viewProfile(post.userid)">
+    <img src={{post.profilepic}} class="menu-profile-pic">
+    <p class="user-detail">{{post.name}}</p>
+    <p class="user-location">Paris, France.</p>
+  </div>
+
+  <div class="contextmenu" *ngIf="post.userid == userid">
+    <button ion-button icon-only clear color="osgrey" (click)="contextMenu(post)">
+        <ion-icon name="ios-more"></ion-icon>
+    </button>
+  </div>
+
+
+  <!-- Post Details -->
+  <ion-item text-wrap no-lines class="postItem">
+    <div class="post-page-content">
+      <h2 color="light" class="post">{{post.title}}</h2>
+    </div>
+  </ion-item>
+
+  <ion-list class="recipe-content"
+            [virtualScroll]="imagesList" 
+            [virtualTrackBy]="trackStand"
+            approxItemHeight="600px"
+            no-lines>
+    <!-- Post Content -->
+
+    <ion-item *virtualItem="let image">
+
+       <div class="photo" *ngIf="image.type == 'photo'" >
+         <img src="{{image.url}}"
+                   class="background"
+                   height="100vw"
+                   width="100%" />
+       </div>
+
+       <div class="photo video" *ngIf="image.type == 'video'">
+         <video #video src="{{image.url}}" webkit-playsinline playsinline preload="none" loop muted autoplay
+                      (loadedmetadata)="videoClicked(video)" >
+         </video>
+       </div>
+
+       <div class="text">
+          <ion-item class="paragraph" *ngIf="image.explanation">
+            {{image.explanation}}
+          </ion-item>
+       </div>
+
+    </ion-item>
+
+
+  </ion-list>
+
+  <!-- Post Social -->
+  <div class="socialmeta">
+    <button ion-button icon-start clear color="osgrey" (click)="likePost(post)" *ngIf="!post.islikedPost">
+      <ion-icon name="md-heart-outline"></ion-icon> {{post.likes}}
+    </button>
+
+    <button ion-button icon-start clear color="osgrey" (click)="likePost(post)" *ngIf="post.islikedPost">
+      <ion-icon name="md-heart" color="redtext"></ion-icon> {{post.likes}}
+    </button>
+
+    <button ion-button icon-start clear color="osgrey">
+      <ion-icon name="ios-chatbubbles"></ion-icon> {{post.comments_count}}
+    </button>
+  </div>
+
+  <ion-list no-lines class="comments">
+    <div class="blankstate" *ngIf="(commentlist | async)?.length == 0">
+      There is no comment yet. Give your opinion now!
+    </div>
+    <!-- Comments -->
+    <ion-item *ngFor="let comment of commentlist | async" class="postItem comments-section" (press)="deleteComment(comment, post.$key)">
+      <ion-item text-wrap class="comment-container">
+        <ion-avatar item-left class="avatar">
+          <img class="profile-img" src={{comment.profilepic}} class="menu-profile-pic">
+        </ion-avatar>
+        <h2 color="secondary" class="user">{{comment.name}}</h2>
+        <p color="dark" class="post">{{comment.post}}</p>
+          <ion-note>{{comment.timestamp | TimeStamp}} ago</ion-note>
+      </ion-item>
+      <ion-item-options side="left" (ionSwipe)="dislikeComment(comment, post.$key)">
+        <button ion-item color="negative">
+          <ion-icon name="thumbs-down" class="voter"></ion-icon>
+        </button>
+      </ion-item-options>
+      <ion-item-options side="right" (ionSwipe)="likeComment(comment, post.$key)">
+        <button ion-item color="positive">
+          <ion-icon item-right name="thumbs-up" class="voter"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+
+  <form [formGroup]="postForm">
+          <ion-textarea formControlName="post" type="text" placeholder="Leave a comment..."></ion-textarea>
+  </form>
+
+    <button ion-button color="primary" clear (click)="createComment()" disabled={{clicked}}>Post</button>
+
+  
+</ion-footer>

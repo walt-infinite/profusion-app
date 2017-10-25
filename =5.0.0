@@ -1,0 +1,70 @@
+- es6-weak-map@2.0.2 node_modules/es6-weak-map
+- estraverse@4.2.0 node_modules/estraverse
+- esrecurse@4.2.0 node_modules/esrecurse
+- event-emitter@0.3.5 node_modules/event-emitter
+- es6-set@0.1.5 node_modules/es6-set
+- es6-map@0.1.5 node_modules/es6-map
+- escope@3.6.0 node_modules/escope
+- get-stream@3.0.0 node_modules/get-stream
+- is-stream@1.1.0 node_modules/is-stream
+- path-exists@3.0.0 node_modules/locate-path/node_modules/path-exists
+- mem@1.1.0 node_modules/mem
+- p-finally@1.0.0 node_modules/p-finally
+- p-limit@1.1.0 node_modules/p-limit
+- p-locate@2.0.0 node_modules/p-locate
+- locate-path@2.0.0 node_modules/locate-path
+- path-key@2.0.1 node_modules/path-key
+- npm-run-path@2.0.2 node_modules/npm-run-path
+- strip-eof@1.0.0 node_modules/strip-eof
+- execa@0.7.0 node_modules/execa
+- tsutils@1.9.1 node_modules/tslint-eslint-rules/node_modules/tsutils
+camelcase@1.2.1 node_modules/uglifyjs-webpack-plugin/node_modules/camelcase -> node_modules/uglify-js/node_modules/camelcase
+cliui@2.1.0 node_modules/uglifyjs-webpack-plugin/node_modules/cliui -> node_modules/uglify-js/node_modules/cliui
+yargs@3.10.0 node_modules/uglifyjs-webpack-plugin/node_modules/yargs -> node_modules/uglify-js/node_modules/yargs
+- uglify-js@2.8.29 node_modules/uglifyjs-webpack-plugin/node_modules/uglify-js
+- uglifyjs-webpack-plugin@0.4.6 node_modules/uglifyjs-webpack-plugin
+- universalify@0.1.1 node_modules/universalify
+- ansi-regex@3.0.0 node_modules/webpack/node_modules/ansi-regex
+- find-up@2.1.0 node_modules/webpack/node_modules/find-up
+- is-fullwidth-code-point@2.0.0 node_modules/webpack/node_modules/is-fullwidth-code-point
+- os-locale@2.1.0 node_modules/webpack/node_modules/os-locale
+- path-type@2.0.0 node_modules/webpack/node_modules/path-type
+- strip-ansi@4.0.0 node_modules/webpack/node_modules/strip-ansi
+- string-width@2.1.1 node_modules/webpack/node_modules/string-width
+- strip-bom@3.0.0 node_modules/webpack/node_modules/strip-bom
+- load-json-file@2.0.0 node_modules/webpack/node_modules/load-json-file
+- read-pkg@2.0.0 node_modules/webpack/node_modules/read-pkg
+- read-pkg-up@2.0.0 node_modules/webpack/node_modules/read-pkg-up
+- which-module@2.0.0 node_modules/webpack/node_modules/which-module
+onespoon@0.0.1 /Users/valentinrichard/Dev/onespoon
+├─┬ @ionic/app-scripts@1.3.12  invalid
+│ ├─┬ fs-extra@2.0.0 
+│ │ └── jsonfile@2.4.0 
+│ ├─┬ node-sass@4.5.3
+│ │ └─┬ request@2.81.0
+│ │   └─┬ har-validator@4.2.1
+│ │     └── ajv@4.11.8 
+│ ├─┬ tslint@5.2.0 
+│ │ ├─┬ findup-sync@0.3.0 
+│ │ │ └── glob@5.0.15 
+│ │ ├─┬ optimist@0.6.1 
+│ │ │ ├── minimist@0.0.10 
+│ │ │ └── wordwrap@0.0.3 
+│ │ └── tsutils@1.9.1 
+│ ├─┬ uglify-js@2.8.27 
+│ │ └─┬ yargs@3.10.0
+│ │   └─┬ cliui@2.1.0
+│ │     └── wordwrap@0.0.2 
+│ └─┬ webpack@2.6.1 
+│   ├── ajv@4.11.8 
+│   ├── ajv-keywords@1.5.1 
+│   ├── loader-utils@0.2.17 
+│   ├─┬ supports-color@3.2.3 
+│   │ └── has-flag@1.0.0 
+│   ├─┬ webpack-sources@0.2.3 
+│   │ └── source-list-map@1.1.2 
+│   └─┬ yargs@6.6.0 
+│     ├── camelcase@3.0.0 
+│     └── yargs-parser@4.2.1 
+└── ajv@5.2.2 
+

@@ -1,0 +1,100 @@
+<ion-header no-border>
+  <ion-navbar color="light">
+    <ion-buttons class="menu-butt">
+      <button ion-button class="main-item active-main-item homebtn" text-color="osgrey">
+        Accueil
+      </button> 
+    </ion-buttons>
+
+    <ion-buttons class="add-butt">
+      <!-- If User doesn't have a Username- Hide -->
+      <button ion-button icon-only (click)="createPost()">
+        <ion-icon name="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg">
+
+  <ion-refresher pullMin="60" pullMax="200" snapbackDuration="1000" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list
+  no-lines>
+
+    <!-- Get Post List-->
+    <ion-item *ngFor="let post of postlist;trackBy:post?.published_at" class="postItem" >
+
+      <ion-item text-wrap>  
+        <div class="authormeta" (click)="viewProfile(post.userid)">   
+          <ion-avatar item-left>
+            <img class="profile-img" src={{post.profilepic}} (error)="imgError(post)">
+          </ion-avatar>
+          <p color="primary" class="user">{{post.name}}</p>
+          <ion-note class="date">Il y a {{post.published_at | TimeStamp}}</ion-note> 
+        </div>
+
+        <div class="contextmenu" *ngIf="post.userid == userid">
+          <button ion-button icon-only clear color="osgrey" (click)="contextMenu(post)">
+              <ion-icon name="ios-more"></ion-icon>
+          </button>
+        </div>
+
+        <div class="photo" *ngIf="getThumb(post).indexOf('jpg') !== -1;" (click)="viewPost(post)">
+
+          <img src="{{getThumb(post)}}"
+                   class="background"
+                   height="100vw"
+                   width="100%" />
+
+        </div>
+
+        <div class="photo video" *ngIf="getThumb(post).indexOf('mp4') !== -1;" (click)="viewPost(post)">
+
+          <video #video src="{{getThumb(post)}}" webkit-playsinline playsinline muted preload loop autoplay 
+                 (loadedmetadata)="videoClicked(video)" >
+         </video>
+
+        </div>
+
+        <div class="postmeta">
+          <h2 color="#757575" (click)="viewPost(post)">{{post.title}}</h2>
+          <div class="socialmeta">
+            <button ion-button icon-start clear color="osgrey" (click)="likePost(post)" *ngIf="!post.islikedPost">
+              <ion-icon name="md-heart-outline"></ion-icon> {{post.likes}}
+            </button>
+
+            <button ion-button icon-start clear color="osgrey" (click)="likePost(post)" *ngIf="post.islikedPost">
+              <ion-icon name="md-heart" color="redtext"></ion-icon> {{post.likes}}
+            </button>
+
+            <button ion-button icon-start clear color="osgrey" (click)="viewPost(post)">
+              <ion-icon name="ios-chatbubbles" color="osgrey"></ion-icon> {{post.comments_count}}
+            </button>
+
+            <!-- <button ion-button icon-start clear color="osgrey" style="float:right">
+              <ion-icon name="md-eye"></ion-icon> 1530
+            </button> -->
+          </div>
+        </div>
+
+
+      </ion-item>
+
+    </ion-item>
+
+  </ion-list>
+
+   <ion-infinite-scroll (ionInfinite)="doInfinite($event)" [enabled]="infinite">
+     <ion-infinite-scroll-content
+      loadingSpinner="crescent">
+      loadingText="Toujours plus de cuisine...">
+     </ion-infinite-scroll-content>
+   </ion-infinite-scroll>
+</ion-content>
