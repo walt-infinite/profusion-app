@@ -33,11 +33,6 @@ export class DraftsPage {
   		this.userid = firebase.auth().currentUser.uid; 
   		this.showCloseBtn = this.navParams.get('showCloseBtn');
 
-       //Get steps and turn them into arrays
-      // this.userfeed = this.db.list(`posts/drafts/`, ref => ref.orderByChild('userid').equalTo(this.userid))
-      // .map( (arr) => { return arr.reverse();
-      // }); 
-
       firebase.database().ref('/posts/drafts').orderByChild("userid").equalTo(this.userid).once('value', (snapshot) => {
           this.userfeed = this.postdata.snapshotToArray(snapshot).reverse();
       }); 

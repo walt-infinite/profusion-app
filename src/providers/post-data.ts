@@ -77,7 +77,7 @@ export class PostData {
 
     var localpost = {
       title: post.title,
-      key: post.$key,
+      key: post.key,
       images: images
     }
 

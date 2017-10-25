@@ -8,7 +8,7 @@
   <ion-navbar color="light">
 
   	<ion-buttons start *ngIf="showCloseBtn">
-      <button ion-button (click)="dismiss()">Close</button>
+      <button ion-button (click)="dismiss()">Fermer</button>
     </ion-buttons>
 
     <ion-buttons class="add-butt" end>
@@ -25,13 +25,13 @@
 <ion-content>
 
 	<div class="title">
-		<h1>My drafts</h1>
+		<h1>Mes brouillons</h1>
 	</div>
 
 	<ion-list no-lines>
 
     <div class="blankstate" *ngIf="(userfeed)?.length == 0">
-      You don't have any draft. Create a recipe and get started!
+      Vous n'avez aucun brouillon. Créez une recette pour commencer !
     </div>
 
     <!-- Get Post List-->
@@ -41,14 +41,14 @@
 
         <div class="postmeta">
           <h2 color="#757575">{{post.title}}</h2>
-          <p>Created {{post.timestamp | TimeStamp}} ago</p>
+          <p>Créé il y a {{post.timestamp | TimeStamp}}</p>
         </div>
 
 
       </ion-item>
 
       <ion-item-options side="right" (ionSwipe)="delete(post)">
-        <button ion-button expandable (click)="delete(post)">Delete</button>
+        <button ion-button expandable (click)="delete(post)">Supprimer</button>
       </ion-item-options>
 
     </ion-item-sliding>
