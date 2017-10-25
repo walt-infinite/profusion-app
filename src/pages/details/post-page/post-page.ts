@@ -22,13 +22,12 @@ import * as firebase from 'firebase/app';
 })
 export class PostPage {
   public postForm;
-  userid: any; 
-  userProfile: any; 
+  userid: any;
+  userProfile: any;
   usernameCheck: any;
   post: any = {};
   commentlist: any;
   clicked: any;
-  posting: any;
   postid: any;
   imagesList: any[] = [];
   likes: any;
@@ -37,23 +36,22 @@ export class PostPage {
   firstvideo: any = true;
   publishing: any;
 
-  constructor(public platform: Platform, public navCtrl: NavController, private navParams: NavParams,public db: AngularFireDatabase, public afAuth: AngularFireAuth, 
+  constructor(public platform: Platform, public navCtrl: NavController, private navParams: NavParams,public db: AngularFireDatabase, public afAuth: AngularFireAuth,
   public viewCtrl: ViewController, public postdata: PostData,public alertCtrl: AlertController, public modalCtrl: ModalController,public profileData: ProfileData, public formBuilder: FormBuilder,
   public actionSheetCtrl: ActionSheetController, public loadingCtrl: LoadingController) {
-    
-    this.userid = firebase.auth().currentUser.uid; 
-    
+
+    this.userid = firebase.auth().currentUser.uid;
+
     //Get Passed Parameters
     let params = this.navParams.get('post');
-    this.posting = this.navParams.get('posting');
     this.publishing = this.navParams.get('publishing')
-    
+
     //Check if User is Viewing a Notification
     if ( params.notification == true ) {
       this.postid = params.postid;
 
       firebase.database().ref('/posts/publish/' + params.postid).once('value', (snap) => {
-        //If Viewing a Notification, fetch post meta from Firebase 
+        //If Viewing a Notification, fetch post meta from Firebase
         this.post = snap.val();
         this.notification = true;
         this.post.key = params.postid;
@@ -90,7 +88,7 @@ export class PostPage {
     });
 
     //Get the comment list in real time
-    this.commentlist = this.db.list(`/comments/${this.postid}/`).map( (arr) => { return arr.reverse();}); 
+    this.commentlist = this.db.list(`/comments/${this.postid}/`).map( (arr) => { return arr.reverse();});
 
     //Setup the comment form
     this.postForm = formBuilder.group({
@@ -98,7 +96,7 @@ export class PostPage {
     });
 
     //Check if the post has been liked
-    let postLikersList = firebase.database().ref(`/likes/${this.postid}`); 
+    let postLikersList = firebase.database().ref(`/likes/${this.postid}`);
         postLikersList.once("value")
           .then((snapshot) => {
           var postCheck = snapshot.hasChild(`${this.userid}`);
@@ -123,42 +121,34 @@ export class PostPage {
 
   createComment(){
       this.clicked = true;
-      if(!this.postForm.valid){
-      } 
-      else if(!this.postForm.valid){
-      }
-      else {
-        if (this.posting == true) {
-          this.postdata.createPost(this.userProfile, this.postForm.value.post)
-          this.postForm.reset();
-        } else {
-          this.postdata.createComment(this.post, this.userProfile, this.postForm.value.post);
-          this.clicked = false;
-          this.postForm.reset();
-        }
+      if(!this.postForm.valid) {
+      } else {
+        this.postdata.createComment(this.post, this.userProfile, this.postForm.value.post);
+        this.clicked = false;
+        this.postForm.reset();
       }
   }
 
 
-  likeComment(comment, postRef, userInfo) { 
+  likeComment(comment, postRef, userInfo) {
     let myId = this.userid;
     userInfo = this.userProfile;
     let postDataProvider = this.postdata;
-    let commentLikersList = firebase.database().ref(`/posts/${postRef}/comments/${comment.key}/likers/`); 
+    let commentLikersList = firebase.database().ref(`/posts/${postRef}/comments/${comment.key}/likers/`);
     //Alert Box for User
     let alert = this.alertCtrl.create({
       title: 'Sorry!',
       subTitle: 'You can only vote once!',
       buttons: ['OK']
     });
-    //Query Post Likers List for User Key 
+    //Query Post Likers List for User Key
     commentLikersList.once("value")
       .then(function(snapshot) {
       var postCheck = snapshot.hasChild(`${myId}`);
         //Check if UserId is On the List
         if (!postCheck) {
           //Like Comment
-          postDataProvider.upVoteComment(comment, postRef, userInfo); 
+          postDataProvider.upVoteComment(comment, postRef, userInfo);
         } else {
           //Alert User is on the List
           alert.present();
@@ -169,27 +159,27 @@ export class PostPage {
     let myId = this.userid;
     userInfo = this.userProfile;
     let postDataProvider = this.postdata;
-    let commentLikersList = firebase.database().ref(`/posts/${postRef}/comments/${comment.$key}/likers/`); 
+    let commentLikersList = firebase.database().ref(`/posts/${postRef}/comments/${comment.$key}/likers/`);
     //Alert Box for User
     let alert = this.alertCtrl.create({
       title: 'Sorry!',
       subTitle: 'You can only vote once!',
       buttons: ['OK']
     });
-    //Query Post Likers List for User Key 
+    //Query Post Likers List for User Key
     commentLikersList.once("value")
       .then(function(snapshot) {
       var postCheck = snapshot.hasChild(`${myId}`);
         //Check if UserId is On the List
         if (!postCheck) {
           //Like Comment
-          postDataProvider.downVoteComment(comment, postRef, userInfo); 
+          postDataProvider.downVoteComment(comment, postRef, userInfo);
         } else {
           //Alert User is on the List
           alert.present();
         }
       });
-  } 
+  }
   deleteComment(comment, postRef) {
     let prompt = this.alertCtrl.create({
       title: 'Delete Post?',
@@ -210,13 +200,13 @@ export class PostPage {
       ]
     });
     prompt.present();
-  } 
+  }
 
   likePost(post){
     let myId = this.userid;
     let userProfile = this.userProfile;
     let postDataProvider = this.postdata;
-    let postLikersList = firebase.database().ref(`/likes/${post.key}`); 
+    let postLikersList = firebase.database().ref(`/likes/${post.key}`);
 
     //UI interaction
     if(this.post.islikedPost == true){
@@ -228,7 +218,7 @@ export class PostPage {
       this.post.islikedPost = true;
     }
 
-    //Query Post Likers List for User Key 
+    //Query Post Likers List for User Key
     postLikersList.once("value")
       .then(function(snapshot) {
       var postCheck = snapshot.hasChild(`${myId}`);
@@ -241,7 +231,7 @@ export class PostPage {
           postDataProvider.unVotePost(post, userProfile);
         }
       });
-  } 
+  }
 
   viewProfile(userid){
     let profileUser = this.userProfile;
@@ -252,9 +242,9 @@ export class PostPage {
 
       navCtrl.push(ProfilePage, {
         userProfile: profileUser
-      }); 
+      });
     });
-  } 
+  }
 
   videoClicked(video) {
     video.play();
@@ -321,7 +311,7 @@ export class PostPage {
     });
     alert.present();
   }
-  
+
   dismiss() {
     this.viewCtrl.dismiss();
   }

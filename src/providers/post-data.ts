@@ -21,7 +21,7 @@ export class PostData {
   error: any;
 
   constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth) {
-    this.userid = firebase.auth().currentUser.uid; 
+    this.userid = firebase.auth().currentUser.uid;
     this.userProfile = firebase.database().ref('/users/');
   }
   createPost(user, post){
@@ -95,7 +95,7 @@ export class PostData {
   createComment(postRef, user, post){
     let channelItem = this.db.list(`/comments/${postRef.key}/`);
     let postList = firebase.database().ref(`/posts/publish/${postRef.key}`);
-    let notifyUserRef = firebase.database().ref(`/notifications/${postRef.userid}`); 
+    let notifyUserRef = firebase.database().ref(`/notifications/${postRef.userid}`);
 
     channelItem.push({
       postid: postRef.key,
@@ -108,33 +108,34 @@ export class PostData {
       type: 'comment',
     }).then(_=> {
       if(postRef.userid != this.userid){
-          console.log('hello');
+        console.log('hello');
 
-          notifyUserRef.push({
-            senderName: user.name,
-            senderProfilepic: user.profilepic,
-            postid: postRef.key,
-            userid: user.userid,
-            timestamp: this.today,
-            post: post,
-            type: "comment",
-            notification: true
-          })
-         }
+        notifyUserRef.push({
+          senderName: user.name,
+          senderProfilepic: user.profilepic,
+          postid: postRef.key,
+          userid: user.userid,
+          timestamp: this.today,
+          post: post,
+          type: "comment",
+          notification: true
+        })
+       }
+
+       postList.child(`comments_count`).transaction(function(comments_count) {
+         comments_count += 1;
+         return comments_count;
        });
 
-
-
-    postList.child(`comments_count`).transaction(function(post) {
-      post += 1;
-      return post;
-    });
+       postRef.comments_count += 1;
+     });
   }
+
   //Like a Post
   upVotePost(post, userInfo) {
     let postList = firebase.database().ref(`/posts/publish/${post.key}`);
     let postsUserRef = firebase.database().ref(`/likes/${post.key}/${this.userid}`);
-    let notifyUserRef = firebase.database().ref(`/notifications/${post.userid}`); 
+    let notifyUserRef = firebase.database().ref(`/notifications/${post.userid}`);
 
     postList.child(`likes`).transaction(function(post) {
       post += 1;
@@ -149,7 +150,7 @@ export class PostData {
           if(post.userid != this.userid){
             console.log('hello');
             //Check if the notification doesn't exist yet
-            let notifsList = firebase.database().ref(`/notifications`); 
+            let notifsList = firebase.database().ref(`/notifications`);
             notifsList.orderByChild('voted').equalTo('liked').once("value")
               .then((snapshot) => {
                 let myId = this.userid;
@@ -180,7 +181,7 @@ export class PostData {
     //Get list of likers
     let myId = this.userid;
     let postList = firebase.database().ref(`/posts/publish/${post.key}`);
-    let postLike = firebase.database().ref(`/likes/${post.key}/${myId}`); 
+    let postLike = firebase.database().ref(`/likes/${post.key}/${myId}`);
 
     postList.child(`likes`).transaction(function(post) {
       post -= 1;
@@ -195,7 +196,7 @@ export class PostData {
   downVotePost(post, userInfo) {
     let postList = firebase.database().ref(`/posts/${post.key}`);
     let postsUserRef = firebase.database().ref(`/posts/${post.key}/likers/${this.userid}`);
-    let notifyUserRef = firebase.database().ref(`/notifications/${post.userid}`); 
+    let notifyUserRef = firebase.database().ref(`/notifications/${post.userid}`);
 
     postList.child(`likes`).transaction(function(post) {
       post -= 1;
@@ -217,14 +218,14 @@ export class PostData {
             type: "post",
             notification: true
           })
-        })    
-     })    
+        })
+     })
   }
   //Like a Comment
   upVoteComment(comment, postRef, userInfo) {
     let commentList = firebase.database().ref(`/posts/${postRef}/comments/${comment.$key}/`);
     let commentsUserRef = firebase.database().ref(`/posts/${postRef}/comments/${comment.$key}/likers/${this.userid}`);
-    let notifyUserRef = firebase.database().ref(`/users/${this.userid}/notifications/${comment.$key}`); 
+    let notifyUserRef = firebase.database().ref(`/users/${this.userid}/notifications/${comment.$key}`);
 
     commentList.child(`likes`).transaction(function(comment) {
       comment += 1;
@@ -246,14 +247,14 @@ export class PostData {
             type: "commentlike",
             notification: true
           })
-        })    
-     })    
+        })
+     })
   }
   //Like a Comment
   downVoteComment(comment, postRef, userInfo) {
     let commentList = firebase.database().ref(`/posts/${postRef}/comments/${comment.$key}/`);
     let commentsUserRef = firebase.database().ref(`/posts/${postRef}/comments/${comment.$key}/likers/${this.userid}`);
-    let notifyUserRef = firebase.database().ref(`/users/${this.userid}/notifications/${comment.$key}`); 
+    let notifyUserRef = firebase.database().ref(`/users/${this.userid}/notifications/${comment.$key}`);
 
     commentList.child(`likes`).transaction(function(comment) {
       comment -= 1;
@@ -275,8 +276,8 @@ export class PostData {
             type: "commentlike",
             notification: true
           })
-        })    
-     })    
+        })
+     })
   }
   deleteComment(comment, postRef) {
     let commentItem = firebase.database().ref(`/posts/${comment.postid}/comments/${comment.$key}`);
@@ -298,9 +299,9 @@ export class PostData {
           item.key = childSnapshot.key;
 
         let myId = this.userid;
-        let postLikersList = firebase.database().ref(`/likes/${item.key}`); 
+        let postLikersList = firebase.database().ref(`/likes/${item.key}`);
 
-        //Query Post Likers List for User Key 
+        //Query Post Likers List for User Key
         postLikersList.once("value")
           .then((snapshot) => {
           var postCheck = snapshot.hasChild(`${myId}`);
