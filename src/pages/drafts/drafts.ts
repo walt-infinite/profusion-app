@@ -27,20 +27,18 @@ export class DraftsPage {
 	showCloseBtn: any;
   actions: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public db: AngularFireDatabase, 
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public db: AngularFireDatabase,
     public alertCtrl: AlertController, public modalCtrl: ModalController, public postdata: PostData) {
 
-  		this.userid = firebase.auth().currentUser.uid; 
+  		this.userid = firebase.auth().currentUser.uid;
   		this.showCloseBtn = this.navParams.get('showCloseBtn');
 
       firebase.database().ref('/posts/drafts').orderByChild("userid").equalTo(this.userid).once('value', (snapshot) => {
           this.userfeed = this.postdata.snapshotToArray(snapshot).reverse();
-      }); 
-
-      console.log(this.userid);
+      });
   }
 
-  
+
   viewCreator(post){
     if(this.showCloseBtn == true){
       this.viewCtrl.dismiss({
@@ -53,7 +51,7 @@ export class DraftsPage {
         });
        modal.present();
     }
-  } 
+  }
 
   delete(post){
     var postPicRef = firebase.database().ref(`/posts/drafts/${post.$key}/`);

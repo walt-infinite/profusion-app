@@ -45,7 +45,7 @@ page-post-page {
 
   .postItem {
     padding-top: 10px;
-    
+
     .label-ios {
       margin-top: 0;
     }
@@ -120,7 +120,7 @@ page-post-page {
         }
       }
     }
-    
+
 
     .paragraph {
       padding: 0px 10px 5px 10px;
@@ -164,11 +164,11 @@ page-post-page {
   .blankstate {
       padding: 40px 50px;
     }
-    
+
   .comments-section {
 
     .comment-container .item-inner {
-      padding: 0 15px !important;
+      padding: 0 10px 0 47px !important;
     }
 
     ion-label.label-ios {
@@ -186,6 +186,8 @@ page-post-page {
 
     .avatar {
       margin: 0;
+      position: absolute;
+      top: 2px; left: 0;
     }
 
     ion-note {

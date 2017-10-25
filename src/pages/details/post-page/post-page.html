@@ -39,13 +39,12 @@
   </ion-item>
 
   <ion-list class="recipe-content"
-            [virtualScroll]="imagesList" 
-            [virtualTrackBy]="trackStand"
-            approxItemHeight="600px"
             no-lines>
     <!-- Post Content -->
 
-    <ion-item *virtualItem="let image">
+    <div *ngFor="let image of imagesList; let i = index; trackBy:image?.key">
+
+     <ion-item>
 
        <div class="photo" *ngIf="image.type == 'photo'" >
          <img src="{{image.url}}"
@@ -68,7 +67,7 @@
 
     </ion-item>
 
-
+   </div>
   </ion-list>
 
   <!-- Post Social -->
@@ -88,17 +87,17 @@
 
   <ion-list no-lines class="comments">
     <div class="blankstate" *ngIf="(commentlist | async)?.length == 0">
-      There is no comment yet. Give your opinion now!
+      Il n'y a pas encore de commentaire. Donnez votre avis !
     </div>
     <!-- Comments -->
     <ion-item *ngFor="let comment of commentlist | async" class="postItem comments-section" (press)="deleteComment(comment, post.$key)">
       <ion-item text-wrap class="comment-container">
-        <ion-avatar item-left class="avatar">
+        <ion-avatar item-start class="avatar">
           <img class="profile-img" src={{comment.profilepic}} class="menu-profile-pic">
         </ion-avatar>
         <h2 color="secondary" class="user">{{comment.name}}</h2>
         <p color="dark" class="post">{{comment.post}}</p>
-          <ion-note>{{comment.timestamp | TimeStamp}} ago</ion-note>
+          <ion-note>Il y a {{comment.timestamp | TimeStamp}}</ion-note>
       </ion-item>
       <ion-item-options side="left" (ionSwipe)="dislikeComment(comment, post.$key)">
         <button ion-item color="negative">
@@ -117,10 +116,10 @@
 <ion-footer>
 
   <form [formGroup]="postForm">
-          <ion-textarea formControlName="post" type="text" placeholder="Leave a comment..."></ion-textarea>
+          <ion-textarea formControlName="post" type="text" placeholder="Écrire un commentaire..."></ion-textarea>
   </form>
 
-    <button ion-button color="primary" clear (click)="createComment()" disabled={{clicked}}>Post</button>
+    <button ion-button color="primary" clear (click)="createComment()" disabled={{clicked}}>Publier</button>
 
-  
+
 </ion-footer>

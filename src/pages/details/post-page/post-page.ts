@@ -88,7 +88,7 @@ export class PostPage {
     });
 
     //Get the comment list in real time
-    this.commentlist = this.db.list(`/comments/${this.postid}/`).map( (arr) => { return arr.reverse();});
+    this.commentlist = this.db.list(`/comments/${this.postid}/`).map( (arr) => { return arr; });
 
     //Setup the comment form
     this.postForm = formBuilder.group({
