@@ -57,7 +57,6 @@
         "ionic-plugin-keyboard": "^2.2.1",
         "ionicons": "3.0.0",
         "ng-elastic": "^1.0.0-beta.3",
-        "nl.x-services.plugins.videocaptureplus": "~1.0.0",
         "rxjs": "5.4.0",
         "sw-toolbox": "3.6.0",
         "zone.js": "0.8.12"
@@ -91,7 +90,6 @@
             "com.synconset.imagepicker": {
                 "PHOTO_LIBRARY_USAGE_DESCRIPTION": "Use photos in your recipes"
             },
-            "nl.x-services.plugins.videocaptureplus": {},
             "cordova-plugin-instagram-assets-picker": {}
         },
         "platforms": [
