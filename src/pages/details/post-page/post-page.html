@@ -119,7 +119,7 @@
           <ion-textarea formControlName="post" type="text" placeholder="Écrire un commentaire..."></ion-textarea>
   </form>
 
-    <button ion-button color="primary" clear (click)="createComment()" disabled={{clicked}}>Publier</button>
+    <button ion-button color="primary" clear (click)="createComment()" [disabled]="clicked == false ? true : false">Publier</button>
 
 
 </ion-footer>

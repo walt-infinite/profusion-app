@@ -13,9 +13,9 @@ export class AuthData {
 
   constructor(public afAuth: AngularFireAuth) {
     afAuth.authState.subscribe( user => {
-      if (user) { 
-        //this.fireAuth = user.auth; 
-        this.userid = firebase.auth().currentUser.uid; 
+      if (user) {
+        //this.fireAuth = user.auth;
+        this.userid = firebase.auth().currentUser.uid;
       } else {
         this.userid = 'public'
       }
@@ -42,11 +42,11 @@ export class AuthData {
         verified: false,
         userid: newUser.uid,
         post_count: 0,
-        karma: 0
-      }); 
+        whitelisted: false
+      });
     }).then(_ =>{
       firebase.auth().onAuthStateChanged(function(user) {
-        user.sendEmailVerification(); 
+        user.sendEmailVerification();
       });
     });
   }

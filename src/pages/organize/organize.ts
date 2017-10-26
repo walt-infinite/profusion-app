@@ -36,7 +36,7 @@ export class OrganizePage {
   public instagramPicker: any;
   public userid: any;
   public post: any = false;
-  public userProfile: any; 
+  public userProfile: any;
 
   public userRef: any;
   public title: any;
@@ -62,7 +62,7 @@ export class OrganizePage {
       this.post = localPost;
       this.title = this.post.title;
       this.postid = this.post.key;
-       
+
       setTimeout(()=>{ loading.dismiss() }, 1500);
     }
 
@@ -100,7 +100,7 @@ export class OrganizePage {
      //Check if the post is created in Firebase
      if(this.postid == false && this.creating == false){
          //If not, create it with the title
-         var firepost = this.postdata.createPost(this.userProfile, 'Untitled').then((success) => {
+         var firepost = this.postdata.createPost(this.userProfile, 'Sans titre').then((success) => {
          this.postid = success.key;
        })
      }
@@ -110,7 +110,7 @@ export class OrganizePage {
       (result)=> {
         this.loading = this.loadingCtrl.create({
           spinner: 'crescent',
-          content: 'Cropping...'
+          content: 'Traitement...'
         });
 
         this.loading.present();
@@ -224,7 +224,7 @@ export class OrganizePage {
           let blob = new Blob([success], {type: "video/mp4"});
           var uploadTask = fireStorRef.child(guid+'.mp4').put(blob);
         }
-        
+
 
         //Progress monitoring
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) =>{
@@ -313,7 +313,7 @@ export class OrganizePage {
           let blob = new Blob([success], {type: "video/mp4"});
           var uploadTask = fireStorRef.child(image.key+'.mp4').put(blob);
         }
-        
+
 
         //Progress monitoring
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) =>{
@@ -344,7 +344,7 @@ export class OrganizePage {
     this.uploading = true;
 
     if(!this.postForm.valid){
-      } 
+      }
     else {
 
       var text = this.postForm.value.post;
@@ -383,7 +383,7 @@ export class OrganizePage {
             this.uploading = false;
           });
         }
-        
+
       }
       //If it's an explanation
       else {
@@ -403,7 +403,7 @@ export class OrganizePage {
         });
       }
 
-      
+
     }
   }
 

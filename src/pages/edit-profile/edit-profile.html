@@ -2,11 +2,11 @@
 
   <ion-navbar color="light">
     <ion-buttons start>
-      <button ion-button (click)="dismiss()">Close</button>
+      <button ion-button (click)="dismiss()">Fermer</button>
     </ion-buttons>
 
     <ion-buttons end>
-      <button ion-button (click)="dismiss()"><b>Save</b></button>
+      <button ion-button (click)="dismiss()"><b style="color: #E94B35;">Enregistrer</b></button>
     </ion-buttons>
 
 
@@ -25,7 +25,7 @@
     <p>{{userProfile?.bio}}</p>
     <ion-note (click)="launchURL(userProfile?.website)">{{userProfile?.website}}</ion-note>
     <button ion-button color="primary" clear small (click)="takePicture()" class="uploadbutton">
-      Upload Profile Pic
+      Modifier ma photo de profil
     </button>
   </ion-item>
   <ion-list class="profile-section">
@@ -34,21 +34,21 @@
       <ion-grid>
         <ion-row>
           <ion-col width-50>
-            Full Name
+            Prénom et nom
           </ion-col>
-          <ion-col *ngIf="userProfile?.name">
+          <ion-col *ngIf="userProfile?.name" class="right">
             {{userProfile?.name}}
           </ion-col>
           <ion-col class="placeholder-profile" *ngIf="!userProfile?.name">
             <span>
-              Tap here to edit.
+              Touchez pour modifier.
             </span>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-item>
 
-    <ion-item (click)="updateBio()">
+   <!--  <ion-item (click)="updateBio()">
       <ion-grid>
         <ion-row>
           <ion-col width-50>
@@ -59,36 +59,18 @@
           </ion-col>
           <ion-col class="placeholder-bio" *ngIf="!userProfile?.bio">
             <span>
-              Tap here to edit.
+              Touchez pour modifier.
             </span>
           </ion-col>
         </ion-row>
       </ion-grid>
-    </ion-item>
+    </ion-item> -->
 
-    <ion-item (click)="updateWebsite()">
-      <ion-grid>
-        <ion-row>
-          <ion-col width-50>
-            Wesbite
-          </ion-col>
-          <ion-col *ngIf="userProfile?.website">
-            {{userProfile?.website}}
-          </ion-col>
-          <ion-col class="placeholder-website" *ngIf="!userProfile?.website">
-            <span>
-              Tap here to edit.
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item>
-      <ion-label class="dob-label">Date of Birth</ion-label>
-      <ion-datetime displayFormat="MMM D, YYYY" pickerFormat="D MMM YYYY"
-        [(ngModel)]="birthDate" (ionChange)="updateDOB(birthDate)"></ion-datetime>
-    </ion-item>
+    <!-- <ion-item>
+      <ion-label class="dob-label">Date de naissance</ion-label>
+      <ion-datetime displayFormat="D MMM YYYY" pickerFormat="D MMM YYYY"
+        [(ngModel)]="birthDate" (ionChange)="updateDOB(birthDate)" class="right"></ion-datetime>
+    </ion-item> -->
 
     <ion-item (click)="updateEmail()">
       <ion-grid>
@@ -96,12 +78,12 @@
           <ion-col width-50>
             Email
           </ion-col>
-          <ion-col width-50 *ngIf="userProfile?.email">
+          <ion-col width-50 *ngIf="userProfile?.email" class="right">
             {{userProfile?.email}}
           </ion-col>
           <ion-col class="placeholder-profile" *ngIf="!userProfile?.email">
             <span>
-              Tap here to edit.
+              Touchez pour modifier.
             </span>
           </ion-col>
         </ion-row>
@@ -112,11 +94,11 @@
       <ion-grid>
         <ion-row>
           <ion-col width-50>
-            Password
+            Mot de passe
           </ion-col>
           <ion-col class="placeholder-profile">
             <span>
-              Tap here to edit.
+              Touchez pour modifier.
             </span>
           </ion-col>
         </ion-row>

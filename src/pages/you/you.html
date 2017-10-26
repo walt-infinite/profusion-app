@@ -3,7 +3,7 @@
     <ion-buttons class="menu-butt">
       <button ion-button class="main-item active-main-item" text-color="osgrey">
         You
-      </button> 
+      </button>
     </ion-buttons>
 
     <ion-buttons end>
@@ -21,25 +21,25 @@
 	    <img src={{userProfile?.profilepic}} class="profilepic">
 	    <h1>{{userProfile?.name}}</h1>
 	    <button ion-button clear primary>
-        	View my profile
+        	Voir mon profil
       </button>
 	</ion-item>
 
 	<ion-item class="postItem listitem" (click)="viewProfile()">
-		My profile
+		Mon profil
 	</ion-item>
 
 	<ion-item class="postItem listitem" (click)="goToDrafts()">
-		My drafts
+		Mes brouillons
 	</ion-item>
 
 	<ion-item class="postItem listitem" (click)="goToEditProfile()">
-		Edit profile
+		Modifier mon profil
 	</ion-item>
 
 	<br>
 	<ion-item class="postItem listitem redtext" (click)="logout()">
-		Log out
+		Se déconnecter
 	</ion-item>
 
 

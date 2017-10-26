@@ -54,23 +54,29 @@ export class DraftsPage {
   }
 
   delete(post){
-    var postPicRef = firebase.database().ref(`/posts/drafts/${post.$key}/`);
+    var postPicRef = firebase.database().ref(`/posts/drafts/${post.key}/`);
 
     let alert = this.alertCtrl.create({
-      title: 'Delete draft',
-      message: 'Do you want to delete this draft?',
+      title: 'Supprimer le brouillon',
+      message: 'Êtes-vous sûr de supprimer ce brouillon ?',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Annuler',
           role: 'cancel',
           handler: () => {
-            console.log('Cancel clicked');
+            //console.log('Cancel clicked');
           }
         },
         {
-          text: 'Delete',
+          text: 'Supprimer',
           handler: () => {
             postPicRef.remove();
+
+            //Remove from local array
+            this.userfeed = this.userfeed.filter(function( obj ) {
+              return obj.key !== post.key;
+            });
+
           }
         }
       ]

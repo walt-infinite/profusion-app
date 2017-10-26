@@ -17,18 +17,18 @@ import * as firebase from 'firebase/app';
 })
 export class Notifications {
   userid: any;
-  userfeed: any; 
+  userfeed: any;
   blank: any;
 
   constructor(public navCtrl: NavController,public db: AngularFireDatabase, public afAuth: AngularFireAuth) {
-      this.userid = firebase.auth().currentUser.uid; 
+      this.userid = firebase.auth().currentUser.uid;
       this.userfeed = this.db.list(`/notifications/${this.userid}`).map( (arr) => { return arr.reverse(); } );
   }
   viewPost(post){
     this.navCtrl.push(PostPage, {
       post: post
-    }); 
-  } 
+    });
+  }
   imgError(post) {
     post.profilepic = 'assets/img/profilepic.jpg';
     post.likedProfilepic = 'assets/img/profilepic.jpg';

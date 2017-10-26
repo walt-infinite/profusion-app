@@ -3,7 +3,7 @@
     <ion-buttons class="menu-butt">
       <button ion-button class="main-item active-main-item" text-color="osgrey">
         Notifications
-      </button> 
+      </button>
     </ion-buttons>
 
     <ion-buttons class="add-butt">
@@ -25,7 +25,7 @@
   <ion-list no-lines>
 
     <div class="blankstate" *ngIf="(userfeed | async)?.length == 0">
-      You don't have any notification yet...
+      Vous n'avez pas encore de notifications.
     </div>
 
 
@@ -37,7 +37,7 @@
           <img src={{post.likedProfilepic}} class="userpic" (error)="imgError(post)">
         </ion-avatar>
         <div class="notif-body">
-          <p color="primary" class="user"><b>{{post.likedName}}</b> {{post.voted}} your {{post.type}} "{{post.title}}"</p>
+          <p color="primary" class="user"><b>{{post.likedName}}</b> aime votre recette "{{post.title}}"</p>
           <ion-note class="date">{{post.timestamp | TimeStamp}}</ion-note>
         </div>
 
@@ -60,7 +60,7 @@
           <img src={{post.senderProfilepic}} class="userpic" (error)="imgError(post)">
         </ion-avatar>
         <div class="notif-body">
-          <p color="primary" class="user"><b>{{post.senderName}}</b> commented on your post: "{{post.post}}"</p>
+          <p color="primary" class="user"><b>{{post.senderName}}</b> a commenté votre recette : "{{post.post}}"</p>
           <ion-note class="date">{{post.timestamp | TimeStamp}}</ion-note>
         </div>
       </ion-item>

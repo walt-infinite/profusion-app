@@ -39,15 +39,11 @@ export class TimeStamp {
                     intervalType = "min";
                 } else {
                     interval = seconds;
-                    intervalType = "sec";
+                    intervalType = "s";
                 }
             }
         }
     }
-    }
-
-    if (interval > 1 || interval === 0) {
-    intervalType += 's';
     }
 
     return interval + ' ' + intervalType;

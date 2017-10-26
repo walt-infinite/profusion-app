@@ -124,7 +124,7 @@ export class PostPage {
       if(!this.postForm.valid) {
       } else {
         this.postdata.createComment(this.post, this.userProfile, this.postForm.value.post);
-        this.clicked = false;
+        setTimeout(function(){ this.clicked = false; }, 1000);
         this.postForm.reset();
       }
   }

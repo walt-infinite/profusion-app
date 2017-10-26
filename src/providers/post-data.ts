@@ -44,7 +44,7 @@ export class PostData {
 
   createLocalPost(user){
     var post = {
-      title: 'Untitled',
+      title: 'Sans titre',
       timestamp: this.today,
       userid: user.userid,
       name: user.name,
